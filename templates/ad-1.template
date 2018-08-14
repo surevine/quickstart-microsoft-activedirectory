@@ -981,7 +981,7 @@
                                         [
                                             "powershell.exe -Command c:\\cfn\\scripts\\Install-ADDSForest.ps1 -DomainNetBIOSName ",
                                             {
-                                                "Ref": "ADServer1NetBIOSName"
+                                                "Ref": "DomainNetBIOSName"
                                             },
                                             " -DomainAdminUser ",
                                             {

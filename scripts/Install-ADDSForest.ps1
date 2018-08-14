@@ -17,7 +17,7 @@ try {
     Start-Transcript -Path C:\cfn\log\$($MyInvocation.MyCommand.Name).log -Append
 
     $DomainAdminPassword = (Get-SSMParameterValue -Names $SSMParamName -WithDecryption $True).Parameters[0].Value
-    Install-ADDSForest -DomainName $DomainDNSName -SafeModeAdministratorPassword (ConvertTo-SecureString $DomainAdminPassword -AsPlainText -Force) -DomainMode Default -ForestMode Default  -Confirm:$false -Force
+    Install-ADDSForest -DomainName $DomainDNSName -DomainNetbiosName $DomainNetBIOSName -SafeModeAdministratorPassword (ConvertTo-SecureString $DomainAdminPassword -AsPlainText -Force) -DomainMode Default -ForestMode Default  -Confirm:$false -Force
 }
 catch {
     $_ | Write-AWSQuickStartException
